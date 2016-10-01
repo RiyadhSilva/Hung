@@ -11,6 +11,7 @@ import java.util.List;
 public class Projeto {
     public String nome;
     public int img;
+    public List<Atividade> atividades;
 
     public Projeto(String nome, int img){
         this.nome = nome;
@@ -27,5 +28,14 @@ public class Projeto {
         projetos.add(new Projeto("Projeto 6", R.mipmap.ic_launcher));
         projetos.add(new Projeto("Projeto 7", R.mipmap.ic_launcher));
         return projetos;
+    }
+
+    public void adicionaAtividade(Atividade atividade){
+        atividades.add(atividade);
+    }
+
+    public void removeAtividade(Atividade atividade){
+        int id = atividades.indexOf(atividade);
+        atividades.remove(id);
     }
 }
