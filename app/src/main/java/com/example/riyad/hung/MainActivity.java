@@ -1,13 +1,75 @@
 package com.example.riyad.hung;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //RecyclerView
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setHasFixedSize(true);
+        //Lista e adapter
+        List<Projeto> projetos = Projeto.getProjetos();
+
+
+        recyclerView.setAdapter(new ProjetoAdapter(this, projetos, onClickProjeto()));
     }
+
+    //OnClick Projeto
+    private ProjetoAdapter.ProjetoOnClickListener onClickProjeto(){
+        return new ProjetoAdapter.ProjetoOnClickListener(){
+            @Override
+            public void onClickProjeto(View view, int idx){
+                List<Projeto> projetos = Projeto.getProjetos();
+                Projeto p = projetos.get(idx);
+                Toast.makeText(getBaseContext(), "Projeto: " + p.nome, Toast.LENGTH_SHORT).show();
+            }
+        };
+    }
+
+    private Activity getActivity(){ return this;}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == R.id.action_linear_layout){
+            //Troca o modo de vizualizacao para lista
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            return true;
+        } else if(id == R.id.action_grid_layout){
+            //Troca o modo de vizualicao para grid
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
