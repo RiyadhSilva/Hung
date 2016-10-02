@@ -104,7 +104,7 @@ public class NovaAtividadeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         //Infla o menu com os botoes da actionbar
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_nova_atividade_menu, menu);
         return true;
     }
 

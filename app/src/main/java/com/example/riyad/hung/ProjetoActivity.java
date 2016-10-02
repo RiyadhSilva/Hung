@@ -39,7 +39,7 @@ public class ProjetoActivity extends AppCompatActivity {
 
         System.out.println("O id do projeto eh: " + projetoID);
 
-        getSupportActionBar().setTitle(nome);
+        getSupportActionBar().setTitle(nome + " - Atividades");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tv_desc = (TextView) findViewById(R.id.projeto_tv_desc);
@@ -59,7 +59,7 @@ public class ProjetoActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_projeto_menu, menu);
         return true;
     }
 

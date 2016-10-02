@@ -55,7 +55,7 @@ public class NovoProjetoActivity extends AppCompatActivity {
     //ActionBar
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_novo_projeto_menu, menu);
         return true;
     }
 }

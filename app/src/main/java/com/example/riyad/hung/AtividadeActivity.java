@@ -3,7 +3,10 @@ package com.example.riyad.hung;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class AtividadeActivity extends AppCompatActivity {
@@ -35,7 +38,11 @@ public class AtividadeActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_atividade_menu, menu);
         return true;
     }
+
+
+
+
 }

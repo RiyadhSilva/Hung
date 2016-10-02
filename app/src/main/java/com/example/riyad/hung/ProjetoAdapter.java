@@ -47,7 +47,7 @@ public class ProjetoAdapter extends RecyclerView.Adapter<ProjetoAdapter.Projetos
         Projeto p = projetos.get(position);
         //Atualiza os valores nas views
         holder.tNome.setText(p.nome);
-        holder.img.setImageResource(p.img);
+        holder.img.setImageResource(R.drawable.ic_projeto);
         //Click
         if(onClickListener != null){
             holder.itemView.setOnClickListener(new View.OnClickListener(){
@@ -69,8 +69,7 @@ public class ProjetoAdapter extends RecyclerView.Adapter<ProjetoAdapter.Projetos
     public static class ProjetosViewHolder extends RecyclerView.ViewHolder{
         public TextView tNome;
         public ImageView img;
-        public TextView tDesc;
-        ProgressBar progress;
+
         private View view;
         public ProjetosViewHolder(View view){
             super(view);
