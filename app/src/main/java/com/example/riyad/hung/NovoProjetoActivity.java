@@ -42,7 +42,7 @@ public class NovoProjetoActivity extends AppCompatActivity {
         //Salva no banco
         projetoDB.save(projeto);
         toast("Projeto Criado!");
-
+        finish();
 
 
 

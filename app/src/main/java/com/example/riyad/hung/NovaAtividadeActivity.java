@@ -92,6 +92,7 @@ public class NovaAtividadeActivity extends AppCompatActivity {
         //Salva o atividade criado no banco
         atividadeDB.save(atividade);
         toast("Criada com sucesso!");
+        finish();
 
     }
 
