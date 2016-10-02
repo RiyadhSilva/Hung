@@ -22,6 +22,7 @@ public class ProjetoActivity extends AppCompatActivity {
     public Long projetoID;
     private TextView tv_desc;
     private RecyclerView recyclerView;
+    private Projeto projeto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,15 @@ public class ProjetoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
+        projeto = new Projeto();
+
         if(bundle != null){
             nome = (String) bundle.get("nome");
             desc = (String) bundle.get("desc");
             projetoID   = (Long) bundle.get("id");
+            projeto.nome = nome;
+            projeto.desc = desc;
+            projeto.id = projetoID;
 
         }
 
@@ -75,6 +81,8 @@ public class ProjetoActivity extends AppCompatActivity {
                 Intent i = new Intent(view.getContext(), AtividadeActivity.class);
                 i.putExtra("nome", a.nome);
                 i.putExtra("desc", a.desc);
+                i.putExtra("atividade", a);
+                i.putExtra("projeto_id", a.id);
                 startActivity(i);
             }
         };
@@ -113,8 +121,24 @@ public class ProjetoActivity extends AppCompatActivity {
         super.onResume();
     }
 
+    public void atualizarProjeto(View view){
+        Intent i = new Intent(this, NovoProjetoActivity.class);
+        i.putExtra("id", projeto.id);
+        i.putExtra("func", "atualizar");
+        startActivity(i);
+        finish();
+    }
 
+    public void excluirProjeto(View view){
+        ProjetoDB projetoDB = new ProjetoDB(view.getContext());
+        projetoDB.delete(projeto);
+        toast("O projeto: " + nome + " foi excluido!");
+        finish();
+    }
 
+    private void toast (String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 
 
 }

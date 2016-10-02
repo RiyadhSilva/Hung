@@ -25,4 +25,24 @@
         android:layout_below="@+id/projeto_tv_desc"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atualizar"
+        android:id="@+id/activity_projeto_bAtualizar"
+        android:layout_below="@+id/atividade_recyclerView"
+        android:layout_centerHorizontal="true"
+        android:onClick="atualizarProjeto"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Excluir"
+        android:id="@+id/activity_projeto_bExcluir"
+        android:layout_alignBottom="@+id/activity_projeto_bAtualizar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="excluirProjeto"/>
+
 </RelativeLayout>

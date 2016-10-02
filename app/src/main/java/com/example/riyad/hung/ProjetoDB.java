@@ -69,7 +69,7 @@ public class ProjetoDB extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         try {
             //delete from projeto where _id=?
-            int count = db.delete("atividade", "_id=?", new String[]{String.valueOf(projeto.id)});
+            int count = db.delete("projeto", "_id=?", new String[]{String.valueOf(projeto.id)});
             Log.d(TAG, "Projeto deletado com sucesso!");
             return count;
         } finally {

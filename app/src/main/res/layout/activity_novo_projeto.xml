@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Criar"
-        android:id="@+id/novo_projeto_bt_criar"
+        android:id="@+id/novo_projeto_bCriar"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:onClick="criarNovoProjeto"/>
