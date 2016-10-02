@@ -1,6 +1,8 @@
 package com.example.riyad.hung;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +51,25 @@ public class AtividadeAdapter extends RecyclerView.Adapter<AtividadeAdapter.Ativ
         holder.tNome.setText(a.nome);
         holder.tDesc.setText(a.desc);
         holder.tCusto.setText(a.custo);
+        //Trata a prioridade
+        if(a.prioridade.equals("normal")){
+            holder.cardView.setCardBackgroundColor(Color.parseColor("#CAEBF2"));
+            holder.tNome.setTextColor(Color.parseColor("#254D32"));
+            holder.tDesc.setTextColor(Color.parseColor("#254D32"));
+            holder.tCusto.setTextColor(Color.parseColor("#254D32"));
+        } else if (a.prioridade.equals("baixa")){
+            holder.cardView.setCardBackgroundColor(Color.parseColor("#EFEFEF"));
+            holder.tNome.setTextColor(Color.parseColor("#463239"));
+            holder.tDesc.setTextColor(Color.parseColor("#463239"));
+            holder.tCusto.setTextColor(Color.parseColor("#463239"));;
+
+        } else if (a.prioridade.equals("alta")){
+            holder.cardView.setCardBackgroundColor(Color.parseColor("#FF3B3F"));
+            holder.tNome.setTextColor(Color.parseColor("#D0DB97"));
+            holder.tDesc.setTextColor(Color.parseColor("#D0DB97"));
+            holder.tCusto.setTextColor(Color.parseColor("#D0DB97"));
+
+        }
         //Click
         if(onClickListener != null){
             holder.itemView.setOnClickListener(new View.OnClickListener(){
@@ -71,6 +92,7 @@ public class AtividadeAdapter extends RecyclerView.Adapter<AtividadeAdapter.Ativ
         public TextView tNome;
         public TextView tDesc;
         public TextView tCusto;
+        public CardView cardView;
         private View view;
         public AtividadesViewHolder(View view){
             super(view);
@@ -79,6 +101,7 @@ public class AtividadeAdapter extends RecyclerView.Adapter<AtividadeAdapter.Ativ
             tNome = (TextView) view.findViewById(R.id.adapter_atividade_tNome);
             tDesc   = (TextView) view.findViewById(R.id.adapter_atividade_tDesc);
             tCusto  = (TextView) view.findViewById(R.id.adapter_atiidade_tCusto);
+            cardView = (CardView) view.findViewById(R.id.adapter_atividade_cardView);
 
         }
     }

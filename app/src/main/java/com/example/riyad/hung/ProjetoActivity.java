@@ -47,7 +47,7 @@ public class ProjetoActivity extends AppCompatActivity {
 
         //RecyclerView
         recyclerView = (RecyclerView) findViewById(R.id.atividade_recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
         //Lista e adapter
