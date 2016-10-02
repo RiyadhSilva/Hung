@@ -26,6 +26,7 @@ public class NovoProjetoActivity extends AppCompatActivity {
         actionBar.setIcon(R.drawable.ic_action_add);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Novo Projeto");
 
         projeto = new Projeto();
 
@@ -37,7 +38,6 @@ public class NovoProjetoActivity extends AppCompatActivity {
                 bt_atualizar.setText("atualizar");
             } else {
                 projeto = new Projeto();
-                actionBar.setTitle("Novo Projeto");
             }
         }
 

@@ -31,9 +31,9 @@
         android:layout_height="wrap_content"
         android:text="Atualizar"
         android:id="@+id/activity_projeto_bAtualizar"
-        android:layout_below="@+id/atividade_recyclerView"
-        android:layout_centerHorizontal="true"
-        android:onClick="atualizarProjeto"/>
+        android:onClick="atualizarProjeto"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"

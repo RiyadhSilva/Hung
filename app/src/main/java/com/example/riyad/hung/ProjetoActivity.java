@@ -132,6 +132,7 @@ public class ProjetoActivity extends AppCompatActivity {
     public void excluirProjeto(View view){
         ProjetoDB projetoDB = new ProjetoDB(view.getContext());
         projetoDB.delete(projeto);
+        //To-Do Apagar atividades do projeto
         toast("O projeto: " + nome + " foi excluido!");
         finish();
     }
