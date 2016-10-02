@@ -18,7 +18,7 @@ public class ProjetoDB extends SQLiteOpenHelper {
     //Nome do banco
     public static final String NOME_BANCO = "hung_db";
     //Versao do banco
-    private static final int VERSAO_BANCO = 1;
+    private static final int VERSAO_BANCO = 2;
 
     public ProjetoDB(Context context){
         super(context, NOME_BANCO, null, VERSAO_BANCO);

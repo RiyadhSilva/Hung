@@ -18,7 +18,7 @@ public class AtividadeDB extends SQLiteOpenHelper{
     //Nome do banco
     public static final String NOME_BANCO = "hung_db";
     //Versao do banco
-    private static final int VERSAO_BANCO = 1;
+    private static final int VERSAO_BANCO = 2;
 
     public AtividadeDB(Context context){
         super(context, NOME_BANCO, null, VERSAO_BANCO);
@@ -33,7 +33,12 @@ public class AtividadeDB extends SQLiteOpenHelper{
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        Log.d(TAG, "Criando a tabela Atividade...");
+        db.execSQL("create table if not exists atividade(_id integer primary key " +
+                "autoincrement, nome text, data text, desc text, custo text, " +
+                "prioridade text, projeto_id integer);");
+        Log.d(TAG, "Tabela criada com sucesso!");
 
     }
 

@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(view.getContext(), ProjetoActivity.class);
                 i.putExtra("nome", p.nome);
                 i.putExtra("desc", p.desc);
+                i.putExtra("id", p.id);
                 startActivity(i);
             }
         };
