@@ -43,9 +43,7 @@ public class NovoProjetoActivity extends AppCompatActivity {
         projetoDB.save(projeto);
         toast("Projeto Criado!");
 
-        //Finaliza a intent chamando outra
-        Intent i =  new Intent(this, MainActivity.class);
-        startActivity(i);
+
 
 
     }

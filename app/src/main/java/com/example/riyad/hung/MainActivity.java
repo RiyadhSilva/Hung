@@ -79,5 +79,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onResume(){
+        //Lista e adapter
+        ProjetoDB projetoDB = new ProjetoDB(this);
+        List<Projeto> projetos = projetoDB.findAll();
+        recyclerView.setAdapter(new ProjetoAdapter(this, projetos, onClickProjeto()));
+        super.onResume();
+    }
+
 
 }
