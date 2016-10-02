@@ -69,6 +69,7 @@ public class ProjetoAdapter extends RecyclerView.Adapter<ProjetoAdapter.Projetos
     public static class ProjetosViewHolder extends RecyclerView.ViewHolder{
         public TextView tNome;
         public ImageView img;
+        public TextView tDesc;
         ProgressBar progress;
         private View view;
         public ProjetosViewHolder(View view){
@@ -77,6 +78,7 @@ public class ProjetoAdapter extends RecyclerView.Adapter<ProjetoAdapter.Projetos
             //Cria as views para salvar no ViewHolder
             tNome = (TextView) view.findViewById(R.id.tNome);
             img   = (ImageView) view.findViewById(R.id.img);
+
         }
     }
 }

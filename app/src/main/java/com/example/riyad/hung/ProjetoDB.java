@@ -26,8 +26,9 @@ public class ProjetoDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "Criando a tabela Projeto...");
-        db.execSQL("create if not exist projeto(_id integer primary key " +
+        db.execSQL("create table if not exists projeto(_id integer primary key " +
                 "autoincrement, nome text, img integer, desc text);");
+
         Log.d(TAG, "Tabela criada com sucesso!");
     }
 

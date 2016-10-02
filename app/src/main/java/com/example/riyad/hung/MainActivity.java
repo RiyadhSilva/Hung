@@ -1,6 +1,7 @@
 package com.example.riyad.hung;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
 
         //RecyclerView
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
         //Lista e adapter
-        List<Projeto> projetos = Projeto.getProjetos();
+        ProjetoDB projetoDB = new ProjetoDB(this);
+        List<Projeto> projetos = projetoDB.findAll();
 
 
         recyclerView.setAdapter(new ProjetoAdapter(this, projetos, onClickProjeto()));
@@ -41,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         return new ProjetoAdapter.ProjetoOnClickListener(){
             @Override
             public void onClickProjeto(View view, int idx){
-                List<Projeto> projetos = Projeto.getProjetos();
+                ProjetoDB projetoDB = new ProjetoDB(view.getContext());
+                List<Projeto> projetos = projetoDB.findAll();
                 Projeto p = projetos.get(idx);
                 Toast.makeText(getBaseContext(), "Projeto: " + p.nome, Toast.LENGTH_SHORT).show();
             }
@@ -67,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
             //Troca o modo de vizualicao para grid
             recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
             return true;
+        } else if (id == R.id.action_new){
+            //Chama a intent NovoProjeto
+            Intent i = new Intent(this, NovoProjetoActivity.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);

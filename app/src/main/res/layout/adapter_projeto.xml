@@ -18,4 +18,5 @@
         android:text="Text"
         android:id="@+id/tNome"
         />
+    
 </LinearLayout>

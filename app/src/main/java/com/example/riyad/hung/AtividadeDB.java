@@ -26,7 +26,7 @@ public class AtividadeDB extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "Criando a tabela Atividade...");
-        db.execSQL("create if not exist atividade(_id integer primary key " +
+        db.execSQL("create table if not exists atividade(_id integer primary key " +
                 "autoincrement, nome text, data text, desc text, custo text, " +
                 "prioridade text, projeto_id integer);");
         Log.d(TAG, "Tabela criada com sucesso!");
