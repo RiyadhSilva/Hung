@@ -77,7 +77,6 @@ public class ProjetoActivity extends AppCompatActivity {
                 AtividadeDB atividadeDB = new AtividadeDB(view.getContext());
                 List<Atividade> atividades = atividadeDB.findAllByProjetoID(projetoID);
                 Atividade a = atividades.get(idx);
-                Toast.makeText(getBaseContext(), "Atividade: " + a.nome, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(view.getContext(), AtividadeActivity.class);
                 i.putExtra("nome", a.nome);
                 i.putExtra("desc", a.desc);

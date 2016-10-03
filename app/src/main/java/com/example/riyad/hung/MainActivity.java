@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 ProjetoDB projetoDB = new ProjetoDB(view.getContext());
                 List<Projeto> projetos = projetoDB.findAll();
                 Projeto p = projetos.get(idx);
-                Toast.makeText(getBaseContext(), "Projeto: " + p.nome, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(view.getContext(), ProjetoActivity.class);
                 i.putExtra("nome", p.nome);
                 i.putExtra("desc", p.desc);

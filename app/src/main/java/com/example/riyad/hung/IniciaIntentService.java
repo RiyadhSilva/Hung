@@ -79,6 +79,7 @@ public class IniciaIntentService extends IntentService{
 
         //Quando ele terminar, o metodo stopSelf() sera chamado automaticamente
         Log.d(TAG, "IniciaIntentService fim.");
+        notificacao("Hung", "Fim do tempo da atividade  " + nome + " !" );
     }
 
     private void fazAlgumaCoisa(){
@@ -96,11 +97,16 @@ public class IniciaIntentService extends IntentService{
         //Ao encerrar o servico, altera a flag para a thread parar
         running = false;
         Log.d(TAG, "IniciaIntentService.onDestroy()");
-        notificacao("Hung", "Fim do tempo da atividade  " + nome + " !" );
+        notificacao("Hung", "Fim de todas as atividade !" );
     }
 
     private void notificacao(String cTitle, String cText) {
-        int id = 1;
+        df = new SimpleDateFormat("mm");
+        date = new Date();
+        String sMinutoAgora = df.format(date);
+        int minuto_agora = Integer.parseInt(sMinutoAgora);
+
+        int id = minuto_agora;
         String contentTitle = cTitle;
         String contentText = cText;
         Intent intent = new Intent(this, MainActivity.class);
