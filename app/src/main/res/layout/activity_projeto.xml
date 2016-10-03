@@ -24,7 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/projeto_tv_desc"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/activity_projeto_bExcluir"
+        android:layout_alignEnd="@+id/activity_projeto_bExcluir" />
 
     <Button
         android:layout_width="wrap_content"
