@@ -11,17 +11,17 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/activity_projeto_menu_submenu"
-        android:title="Layout"
+        android:title="Exibir"
         app:showAsAction="never">
         <menu>
             <item
                 android:id="@+id/action_linear_layout"
-                android:title="Linear Layout"
+                android:title="Lista"
                 app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_grid_layout"
-                android:title="Grid Layout"
+                android:title="Grade"
                 app:showAsAction="never" />
         </menu>
 

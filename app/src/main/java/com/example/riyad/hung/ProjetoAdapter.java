@@ -47,7 +47,7 @@ public class ProjetoAdapter extends RecyclerView.Adapter<ProjetoAdapter.Projetos
         Projeto p = projetos.get(position);
         //Atualiza os valores nas views
         holder.tNome.setText(p.nome);
-        holder.img.setImageResource(R.drawable.ic_projeto);
+        holder.img.setImageResource(R.drawable.ic_cycle);
         //Click
         if(onClickListener != null){
             holder.itemView.setOnClickListener(new View.OnClickListener(){

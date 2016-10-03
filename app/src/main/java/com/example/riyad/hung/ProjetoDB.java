@@ -30,6 +30,12 @@ public class ProjetoDB extends SQLiteOpenHelper {
                 "autoincrement, nome text, img integer, desc text);");
 
         Log.d(TAG, "Tabela criada com sucesso!");
+
+        Log.d(TAG, "Criando a tabela Atividade...");
+        db.execSQL("create table if not exists atividade(_id integer primary key " +
+                "autoincrement, nome text, data text, desc text, custo text, " +
+                "prioridade text, projeto_id integer);");
+        Log.d(TAG, "Tabela criada com sucesso!");
     }
 
     @Override

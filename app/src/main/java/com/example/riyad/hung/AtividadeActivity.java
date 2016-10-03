@@ -40,7 +40,6 @@ public class AtividadeActivity extends AppCompatActivity {
         }
 
         getSupportActionBar().setTitle(nome);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tv_desc = (TextView) findViewById(R.id.atividade_tv_desc);
         tv_desc.setText(desc);
@@ -86,7 +85,25 @@ public class AtividadeActivity extends AppCompatActivity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == R.id.action_close){
+            //Troca o modo de vizualizacao para lista
+            finish();
+            return true;
+        } else if(id == R.id.action_grid_layout){
+            //Troca o modo de vizualicao para grid
 
+            return true;
+        } else if (id == R.id.action_new){
+            //Chama a intent NovoProjeto
+            Intent i = new Intent(this, NovoProjetoActivity.class);
+            startActivity(i);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 
 }
