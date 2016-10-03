@@ -135,6 +135,9 @@ public class ProjetoActivity extends AppCompatActivity {
         //To-Do Apagar atividades do projeto
         toast("O projeto: " + nome + " foi excluido!");
         finish();
+        Intent s = new Intent(this, DeletaIntentService.class);
+        s.putExtra("id", String.valueOf(projeto.id));
+        startService(s);
     }
 
     private void toast (String msg){
