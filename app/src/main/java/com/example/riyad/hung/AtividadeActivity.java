@@ -9,7 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.sql.Time;
 
 public class AtividadeActivity extends AppCompatActivity {
     private String nome;
@@ -17,6 +20,9 @@ public class AtividadeActivity extends AppCompatActivity {
     private Long projeto_id;
     private TextView tv_desc;
     private Atividade atividade;
+    private TimePicker timePicker;
+    private int hora;
+    private int minutos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,8 @@ public class AtividadeActivity extends AppCompatActivity {
 
         tv_desc = (TextView) findViewById(R.id.atividade_tv_desc);
         tv_desc.setText(desc);
+        timePicker = (TimePicker) findViewById(R.id.activity_atividade_time_picker);
+        timePicker.setIs24HourView(true);
     }
 
     @Override
@@ -47,7 +55,16 @@ public class AtividadeActivity extends AppCompatActivity {
     }
 
     public void iniciarAtividade(View view){
+        hora = timePicker.getCurrentHour();
+        minutos = timePicker.getCurrentMinute();
+        Intent s = new Intent(this, IniciaIntentService.class);
+        s.putExtra("hora", String.valueOf(hora));
+        s.putExtra("minutos", String.valueOf(minutos));
+        s.putExtra("nome", atividade.nome);
+        s.putExtra("id", atividade.id);
+        startService(s);
         toast("Tarefa :" + nome + " foi iniciada!");
+        finish();
 
     }
 

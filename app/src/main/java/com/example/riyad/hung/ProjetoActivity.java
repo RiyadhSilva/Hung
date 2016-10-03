@@ -137,6 +137,7 @@ public class ProjetoActivity extends AppCompatActivity {
         finish();
         Intent s = new Intent(this, DeletaIntentService.class);
         s.putExtra("id", String.valueOf(projeto.id));
+        s.putExtra("nome", projeto.nome);
         startService(s);
     }
 

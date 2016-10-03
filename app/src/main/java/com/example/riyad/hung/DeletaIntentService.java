@@ -18,10 +18,12 @@ public class DeletaIntentService extends IntentService {
     private static final int MAX = 15;
     private static final String TAG = "livro";
     private boolean running;
+    private String nome;
 
     @Override
     protected void onHandleIntent(Intent intent){
         running = true;
+        nome = intent.getStringExtra("nome");
         Log.d(TAG, "DeletaIntentService executando...");
         String sProjetoID = intent.getStringExtra("id");
         Long projeto_id = Long.parseLong(sProjetoID);
@@ -60,5 +62,14 @@ public class DeletaIntentService extends IntentService {
         //Ao encerrar o servico, altera a flag para a thread parar
         running = false;
         Log.d(TAG, "DeletaIntentService.onDestroy()");
+        notificacao("Hung", "Atividades deletadas do " + nome + " !" );
+    }
+
+    private void notificacao(String cTitle, String cText) {
+        int id = 1;
+        String contentTitle = cTitle;
+        String contentText = cText;
+        Intent intent = new Intent(this, MainActivity.class);
+        NotificationUtil.create(this, intent, contentTitle, contentText, id);
     }
 }
